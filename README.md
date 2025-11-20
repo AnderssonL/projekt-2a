@@ -19,3 +19,9 @@ The absolute error (in the three methods) is compared with the theoretical error
 The analytic solution to U2 a) can be seen in the image below.
 
 ![Image showing the analytical solution to U2 a).](U2a.jpg)
+
+### b)
+
+The analytic motivation for the transformation from an ODE to a linear equation is motivated in the image below.
+
+![Image showing the analytical motivation in U2 b).](U2b.jpg)

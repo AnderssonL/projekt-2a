@@ -1,3 +1,5 @@
+%% U1
+
 x0 = 0.75;
 
 err_central = zeros(1,8);
@@ -50,3 +52,48 @@ ylabel('Error')
 legend('Central (2)', 'Forward (6)', 'Backward (7)', '1/h')
 grid on
 title('Error vs O(h^2')
+
+
+%% U2
+
+N = 5;
+h = (2*pi)/N;
+d = 1;
+f = @(x) d*cos(2*x);
+H = 1/(h^2);
+
+A = zeros(N, N);
+b = zeros(N, 1);
+q = zeros(N, 1);
+
+gamma = 0;
+delta = 0;
+
+
+
+% adding finite element method pattern to A
+% adding function values to q
+for i = 1:N-1
+    A(i+1, i) = H;
+    A(i+1, i+1) = 16-2*H;
+    if i~=(N-1)
+        A(i+1, i+2) = H;
+    end
+
+    q(i+1) = f(h*i);
+end
+
+% adding randvilkor to A
+A(1, 1) = -1;
+A(1, 2) = 1;
+
+% adding randvilkor to q
+q(1) = q(1) - gamma*h;
+q(N) = q(N) - delta*H;
+
+
+% Lös ekvationssystemet A*w = q -> w = A\q
+w = A\q;
+
+
+
