@@ -55,6 +55,8 @@ title('Error vs O(h^2')
 
 
 %% U2
+gamma = 1;
+delta = 1;
 
 N = 400;
 h = (2*pi)/N;
@@ -68,8 +70,6 @@ A = zeros(N, N);
 b = zeros(N, 1);
 q = zeros(N, 1);
 
-gamma = 1;
-delta = 1;
 
 
 
@@ -101,9 +101,17 @@ figure(2)
 hold on
 plot(x, w)
 plot(x, u(x))
+title("Lösning ODE")
+xlabel("x")
+ylabel("f(x)")
+legend("numerisk lösning", "analytisk lösning")
 
 figure(3)
 plot(x, w-u(x))
+title("Fel i numerisk lösning")
+xlabel("x")
+ylabel("fel")
+legend("analytisk lösning - numerisk lösning")
 
 
 %%CN function

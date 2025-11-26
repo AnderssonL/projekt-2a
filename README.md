@@ -25,3 +25,11 @@ The analytic solution to U2 a) can be seen in the image below.
 The analytic motivation for the transformation from an ODE to a linear equation is motivated in the image below.
 
 ![Image showing the analytical motivation in U2 b).](Images/U2b.jpg)
+
+### d)
+
+Comparison between the numerical and analytical solution of the ODE as well as the difference between them (error) can be seen in the graphs below.
+
+![Graph showing the analytical and numerical solutions of f(x).](Images/U2c_comparison.png)
+
+![Graph showing the error of f(x) solved numerically.](Images/U2c_error.png)
