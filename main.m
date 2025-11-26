@@ -71,7 +71,7 @@ b = zeros(N, 1);
 q = zeros(N, 1);
 
 
-
+% c & d
 
 % adding finite element method pattern to A
 % adding function values to q
@@ -113,7 +113,7 @@ xlabel("x")
 ylabel("fel")
 legend("analytisk lösning - numerisk lösning")
 
-% d)
+% e)
 w_history = zeros(5, 1);
 
 for k = 0:4
@@ -171,6 +171,69 @@ xlabel("N")
 ylabel("2-Error")
 
 table(Ns, w_error, w_ordning)
+
+% f
+N = 400;
+f_new = @(x) exp(-(-x-pi)^2); % f (in U2f)
+w_newf_history = zeros(N, 2);
+
+for k = 1:2
+    if k == 1
+        delta = 0;
+        gamma = 0;
+    else
+        delta = 0;
+        gamma = 1;
+    end
+
+
+    N = 400;
+    h = (2*pi)/N;
+
+    H = 1/(h^2);
+    x = linspace(0, 2*pi, N)';
+    
+    A = zeros(N, N);
+    b = zeros(N, 1);
+    q = zeros(N, 1);
+
+    
+    % adding finite element method pattern to A
+    % adding function values to q
+    for i = 1:N-1
+        A(i+1, i) = H;
+        A(i+1, i+1) = 16-2*H;
+        if i~=(N-1)
+            A(i+1, i+2) = H;
+        end
+    
+        q(i+1) = f(h*i);
+    end
+    
+    % adding randvilkor to A
+    A(1, 1) = -1;
+    A(1, 2) = 1;
+    
+    % adding randvilkor to q
+    q(1) = q(1) + gamma*h;
+    q(N) = q(N) - delta*H;
+    
+    
+    % Lös ekvationssystemet A*w = q -> w = A\q
+    w = A\q;
+
+    w_newf_history(:, k) = w(:, 1);
+end
+
+figure(5)
+hold on
+plot(x, w_newf_history);
+title("Numerical solution of two BVP")
+legend("delta = 0, gamma = 0", "delta = 0, gamma = 1")
+xlabel("x")
+ylabel("u(x)")
+
+
 
 
 % 

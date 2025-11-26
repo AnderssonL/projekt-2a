@@ -26,7 +26,7 @@ The analytic motivation for the transformation from an ODE to a linear equation 
 
 ![Image showing the analytical motivation in U2 b).](Images/U2b.jpg)
 
-### d)
+### d)  
 
 Comparison between the numerical and analytical solution of the ODE as well as the difference between them (error) can be seen in the graphs below.
 
@@ -34,7 +34,7 @@ Comparison between the numerical and analytical solution of the ODE as well as t
 
 ![Graph showing the error of f(x) solved numerically.](Images/U2c_error.png)
 
-### e)
+### e)  
 
 The 2 error between for N = [50, 100, 200, 400, 800] can be seen in the graph below.  
 
@@ -43,3 +43,9 @@ The 2 error between for N = [50, 100, 200, 400, 800] can be seen in the graph be
 The numerical order of this method is 1. When timestep is halfed, so is error. This can be seen in the table below, note that w_ordning = (w_error(last timestep) - w_error(this timestep))/change_in_timestep. Change in timestep is 0,5.
 
 ![Table showing the numerical order of the method.](Images/U2e_table.png)
+
+### f)  
+
+Changing the f(x) function creates for an entirely new ODE (with many similarities to the old one), and changing the values of delta and gamma changes the path between the first solution and the second one. The second solution ends the solution with a linear slope and the first ends without a slope. This simply changes the BVP. See solutions in the graph below.
+
+![Graph showing the solutions of the two BVP:s.](Images/U2f.png)
