@@ -50,11 +50,31 @@ Changing the f(x) function creates for an entirely new ODE (with many similariti
 
 ![Graph showing the solutions of the two BVP:s.](Images/U2f.png)
 
-##U3
+## U3
 
 ### a)
 
-This is the sulution to warmth equation with euler forward
-![picture showing sulution to warmth equation with euler forward](Images/U3(A).pdf)
+This is the solution to the heat equation with Euler forward.
+![Picture showing solution to the heat equation with Euler forward.](Images/U3(A).pdf)
+
+### c)
+
+Here we use the same scheme with D = 1, f = 0, TL = TR = 0 and  
+u₀(x) = sin(5πx). The plot shows the error u_num − u_exact at T = 0.01,
+which is small (about 10⁻⁴) and oscillatory as expected.
+
+![Graph showing the error between numerical and analytical solution for U3(c).](Images/U3(C).png)
+
+### d)
+
+For the explicit Euler + central difference scheme the stability condition is  
+D·Δt/Δx² ≤ 1/2, so the theoretical maximum time step is
+
+Δt_max = Δx² / (2D).
+
+With Δx = 1/N and D = 1 this becomes Δt_max = 1/(2N²), e.g. Δt_max = 5·10⁻⁵ for N = 100.
+In our tests Δt ≤ Δt_max gives a stable solution, and decreasing Δt further
+makes the numerical error smaller.
+
 
 
