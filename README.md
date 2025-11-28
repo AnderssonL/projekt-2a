@@ -49,3 +49,12 @@ The numerical order of this method is 1. When timestep is halfed, so is error. T
 Changing the f(x) function creates for an entirely new ODE (with many similarities to the old one), and changing the values of delta and gamma changes the path between the first solution and the second one. The second solution ends the solution with a linear slope and the first ends without a slope. This simply changes the BVP. See solutions in the graph below.
 
 ![Graph showing the solutions of the two BVP:s.](Images/U2f.png)
+
+##U3
+
+### a)
+
+This is the sulution to warmth equation with euler forward
+![picture showing sulution to warmth equation with euler forward](Images/U3(A).pdf)
+
+
